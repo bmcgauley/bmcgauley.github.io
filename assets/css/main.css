@@ -2242,15 +2242,14 @@ input, select, textarea {
 					}
 
 			#main > section.cover {
-				padding: 100em 0;
+				padding: 10em 0;
 				background-size: cover;
-				background-repeat: no-repeat;
 				background-position: center center;
 			}
 
 			#main > section.one {
 				margin: 0;
-				height: 800px;
+				height: 1000px;
 				background-color: #81918E;
 				background-image:  linear-gradient(to right,#1f01a1cb, #9c0068b2), url("../../images/Alien1.png");
 				
