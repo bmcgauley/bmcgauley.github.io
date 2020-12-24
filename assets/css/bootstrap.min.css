@@ -5854,6 +5854,16 @@ button.close {
   text-shadow: 0 5px 2px rgba(44, 44, 44, 0.6);
   
 }
+.carousel-caption2 {
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 10;
+    padding-top: 2px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 5px 2px rgba(44, 44, 44, 0.6);
+    
+  }
 .carousel-caption .btn {
   text-shadow: none;
 }
