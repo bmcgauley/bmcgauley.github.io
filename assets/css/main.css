@@ -2267,7 +2267,24 @@ input, select, textarea {
 			#main > section.four {
 				background-color: #e8edec;
 			}
-
+			.css-slideshow{
+				text-align:center;
+				position: relative;
+				max-width: 100%;
+				height: 730px;
+				margin: auto;
+			}	
+			/* #slideshow img {
+				max-width: 100%;
+				max-height: 100%; */
+			}
+			/* #slideshow {
+				text-align:center;
+				position: relative;
+				max-width: 410px;
+				height: 730px;
+				margin: auto; */
+}
 /* Wide */
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
@@ -2299,6 +2316,7 @@ input, select, textarea {
 	}
 
 /* Normal */
+
 
 	@media screen and (min-width: 961px) and (max-width: 1620px) {
 
@@ -2578,6 +2596,9 @@ input, select, textarea {
 				#main section.cover {
 					padding: 4em 0;
 				}
+
+
+  
 
 	}
 
