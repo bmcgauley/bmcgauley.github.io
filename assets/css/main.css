@@ -2053,9 +2053,9 @@ input, select, textarea {
 		left: 0;
 		overflow-y: auto;
 		position: fixed;
-		text-align: right;
+		text-align: center;
 		top: 0;
-		width: 375px;
+		width: 275px;
 	}
 
 		#header .top {
@@ -2175,7 +2175,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		margin-left: 375px;
+		margin-left: 275px;
 		text-align: center;
 		background-color: #dce3e2;
 		padding: 3em 0 4em 0;
@@ -2205,7 +2205,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		margin-left: 375px;
+		margin-left: 275px;
 	}
 
 		#main > section {
