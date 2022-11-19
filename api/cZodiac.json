@@ -2,5 +2,49 @@
     {
         "cZodiac": "Rooster",
         "czMessage": "<b>Roosters' Personality:</b> observant, hardworking, active, amusing and popular among a crowd.<h3>Roosters' Horoscope in 2022:</h3><p>Rooster people, you are predicted luck in life and finances in 2022. You’ll probably get help from superiors, a promotion, and a raise. Diligent work and study should produce good results this year."
+    },
+    {
+        "cZodiac": "Dog",
+        "czMessage": "<b>Dogs' Personality:</b> loyal, honest, amiable, kind, cautious, prudent. <br /><h3>Dogs' Horoscope in 2022:</h3><p>Following an undulating 2021, people born in the year of the Dog, you will enjoy much improved luck in 2022: your career will flourish and your achievements will be recognized by your bosses. If you pursue areas of growth, travel, and maintain harmony and interact well with those around you, you will have good prospects in 2022."
+    },
+    {
+        "cZodiac": "Pig",
+        "czMessage": "<b>Pigs' Personality:</b> Diligent, compassionate, generous and great concentration. <br /><h3>Pigs' Horoscope in 2022:</h3><p>Generally, 2022 (a year of the Tiger) will be an unstable year for people born in a year of the Pig. Pigs might encounter many unexpected accidents or troubles. Making big changes, like buying a house, getting married, or making a baby, will bring good luck to Pigs. In addition, wearing some rabbit-shaped or goat-shaped jewelry will also help."
+    },
+    {
+        "cZodiac": "Rat",
+        "czMessage": "<b>Rats' Personality:</b> quick-witted, resourceful, versatile, kind. <br /><h3>Rats' Horoscope in 2022:</h3><p>You were affected by various adverse changes due to a (partial) coincidence with Tai Sui last year. Entering year of the Tiger 2022, your fortune will be more stable than last year. Although there will not be much development, the year will pass smoothly in general."
+    },
+    {
+        "cZodiac": "Ox",
+        "czMessage": "<b>Ox' Personality:</b> diligent, dependable, strong, determined. <br /><h3>Ox' Horoscope in 2022:</h3><p>After going through their ‘birth sign year' (2021), people born in the year of the Ox will meet a better time in 2022 with good health, an enjoyable love life, and a smooth career path."
+    },
+    {
+        "cZodiac": "Tiger",
+        "czMessage": "<b>Tiger' Personality:</b> brave, confident, competitive, unpredictable. <br /><h3>Tiger' Horoscope in 2022:</h3><p>Tigers will encounter their 'birth sign year' (benmingnian本命年) in 2022. Tigers are expected to face many challenges when their birth year recurs every twelfth year. Wearing red will bring good luck in a birth sign year."
+    },
+    {
+        "cZodiac": "Rabbit",
+        "czMessage": "<b>Rabbit' Personality:</b> quiet, elegant, kind, responsible. <br /><h3>Rabbit' Horoscope in 2022:</h3><p>You were affected by various adverse changes due to a (partial) coincidence with Tai Sui last year. Entering year of the Tiger 2022, your fortune will be more stable than last year. Although there will not be much development, the year will pass smoothly in general."
+    },
+    {
+        "cZodiac": "Dragon",
+        "czMessage": "<b>Dragons Personality:</b> confident, intelligent, enthusiastic. <br /><h3>Dragons' Horoscope in 2022:</h3><p>Dragons, you will have much better luck in 2022 than in 2021. Optimism will oust bad luck and increase your wealth. Your progress in 2022 will not disappoint you as long as you work hard and circumspectly."
+    },
+    {
+        "cZodiac": "Snake",
+        "czMessage": "<b>Snake Personality:</b> enigmatic, intelligent, wise. <br /><h3>Snake' Horoscope in 2022:</h3><p>Snake people, your luck in 2022 will be moderate, with unexpected hassles, but mostly good results. You should try to keep calm when feeling upset. You’re suggested to travel for relaxation.Attending a wedding or birthday party will allay bad luck. 2022 is a lucky time for you to marry or move home."
+    },
+    {
+        "cZodiac": "Horse",
+        "czMessage": "<b>Horse Personality:</b> animated, active, energetic. <br /><h3>Horse Horoscope in 2022:</h3><p>You are predicted a smooth life and good luck with money in 2022. Your career will go smoothly, and your leaders will reward you if you go all out to fulfill your goals. In 2022, you will also enjoy good relationships. Patience and good communication will yield harmony with colleagues, friends and families."
+    },
+    {
+        "cZodiac": "Goat",
+        "czMessage": "<b>Goat Personality:</b> calm, gentle, sympathetic. <br /><h3>Goat Horoscope in 2022:</h3><p>In year of the Tiger 2022, you have one of the luckiest zodiac signs. This year, you will have career growth and great relationships. Single Goats, you will have great luck in finding a partner. When you find him/her, seize the day, pursue happiness, and express your love."
+    },
+    {
+        "cZodiac": "Monkey",
+        "czMessage": "<b>Monkey Personality:</b> sharp, smart, curious. <br /><h3>Monkey Horoscope in 2022:</h3><p>Monkeys, don’t expect much from 2022. You will need more work to achieve anything. To allay bad luck, you could do something auspicious this year, like marrying, having a baby, or moving house."
     }
 ]
