@@ -1,0 +1,30 @@
+[
+    {
+        "happy": [
+            "If my mind can conceive it, if my heart can believe it, then I can achieve it. -Muhammed Ali",
+			"The most wasted of days is one without laughter. -E.E. Cummings",
+			"The people who are crazy enough to think they can change the world are the ones who do. -Steve Jobs"
+        ],
+        "sad": [
+            "You're braver than you believe, stronger than you seem, and smarter than you think. -A.A. Milne",
+            "There is always light, if only we/re brave enough to see it. If only we/re brave enough to be it. -Amanda Gorman",
+            "Doubt is a killer. You just have to know who you are and what you stand for. -Jennifer Lopez"
+        ],
+        "fearful": [
+            "There's no shame in fear, my father told me, what matters is how we face it. -George R.R. Martin",
+			"The only thing we have to fear is fear itself. -Franklin D. Roosevelt",
+			"There is no failure except in no longer trying. -Elbert Hubbard"
+        ],
+        "angry": [
+            "If you are patient in one moment of anger, you will escape a hundred days of sorrow. -Chinese Proverb",
+            "Not being outraged by anything is a superpower. -James Pierce",
+            "Speak when you are angry and you'll make the best speech you'll ever regret. -Ambrose Bierce"
+        ],
+        "depressed": [
+            "Don't ignore the lessons of pain nor walk the same path again, or it may happen again. Strive to preserve your new-found peace. -Terry Mark",
+            "Don't desire happiness because it creates only unhappiness and nothing else. -Osho",
+            "Worrying doesn't empty tomorrow of its sorrows; it empties today of its strengths. -Corrie Ten Boom"
+        ]
+
+    }
+]
