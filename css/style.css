@@ -290,7 +290,7 @@ a.active {
 ==================================================*/
 
 #home {
-    background: url(../img/portfolio/images/Me2.jpg);
+    background: url(../img/portfolio/images/Photography/1.jpg);
     background-size: cover;
     height: 100vh;
 }
@@ -319,11 +319,12 @@ a.active {
 
 .about-border {
     position: absolute;
-    border: 10px solid #425BB5;
+    border: 6px solid #425BB5;
     width: 400px;
     height: 400px;
-    top: 40px;
-    left: 50px;
+    top: 4%;
+
+    left: 25%;
     z-index: 1
 }
 
