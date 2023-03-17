@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="requests.js" defer></script>
+    <script src="DOM.js" defer></script>
+    <script type="text/javascript" src="uuidv4.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+        integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script type="text/javascript" src="functions.js" defer></script>
+    <script type="text/javascript" src="app.js" defer></script>
+    
+</head>
+<body>
+    <div id="main">
+        <div class="header">
+            <h1>
+                <img src='img/pngegg.png' align='left' height='70px'/> Mood & Horoscope App 
+            </h1>
+        </div>
+        <div id="page-div" class="container">
+            <div id="left" class="left">
+                <h1>Please input the data required below:</h1>
+                <div id="error" class="error">
+
+                </div>
+            </div>
+            <div id="center-div">
+            </div>
+            <div id="output" class="output">
+                <span id="output-span"></span>
+                
+            </div>
+            <div id="right" class="right">
+                <h1>Previous Entries:</h1>
+                <p id="output-para"></p>
+                
+                <span id="right-output-span"></span>
+                
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

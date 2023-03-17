@@ -1,0 +1,51 @@
+[
+    {
+        "ariesStart": "03/21",
+        "ariesEnd": "04/19"
+    },
+    {
+        "taurusStart": "04/20",
+        "taurusEnd": "05/20"
+    },
+    {
+        "geminiStart": "05/21",
+        "geminiEnd": "06/20"
+    },
+    {
+        "cancerStart": "06/21",
+        "cancerEnd": "07/22"
+    },
+    {
+        "leoStart": "07/23",
+        "leoEnd": "08/22"
+    },
+    {
+        "virgoStart": "08/23",
+        "virgoEnd": "09/22"
+    },
+    {
+        "libraStart": "09/23",
+        "libraEnd": "10/22"
+    },
+    {
+        "scorpioStart": "10/23",
+        "scorpioEnd": "11/21"
+    },
+    {
+        "sagittStart": "11/22",
+        "sagittEnd": "12/21"
+    },
+    {
+        "capricornStart": "12/22",
+        "capricornEnd": "01/19"
+    },
+    {
+        "aquariusStart": "01/20",
+        "aquariusEnd": "02/18"
+    },
+    {
+        "piscesStart": "02/19",
+        "piscesEnd": "03/20"
+    }
+
+]
