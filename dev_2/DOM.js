@@ -26,6 +26,7 @@ let generateIndexDOM = () => {
 	const mainForm = document.createElement('form');
 	mainForm.setAttribute('id', 'form');
 	mainForm.setAttribute('name', 'form');
+	mainForm.setAttribute('class', 'form');
 	//name label
 	const nameLabel = document.createElement('label');
 	nameLabel.textContent = 'Please Enter Your Name: ';
