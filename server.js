@@ -7,8 +7,8 @@ const express = require("express")
 const app = express();
 const port = 5500;
 //const serverIP = "67.182.53.30";
-const token = "MTEwNTYzNzQ5NzkwNTYzMTMzMw.GQbRSe.hbVZyABywzPMDT0BnCWoo1t8hoqdDRQVAb1mIs";
-const channelId = "1089659519526772876";
+const token = "process.env.TOKEN";
+const channelId = "1089659519082188970";
 //app.use(cors());
 const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages] });
