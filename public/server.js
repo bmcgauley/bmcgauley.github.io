@@ -1,16 +1,14 @@
-
-const Discord = require("discord.js");
-const { Client, GatewayIntentBits } = require("discord.js");
-
-const express = require("express")
-//const cors = require("cors")
+import { Client as _Client } from "discord.js";
+import { Client, GatewayIntentBits } from "discord.js";
+import express, { json, staticz } from "express";
+import cors from "cors";
 const app = express();
-const port = 5500;
+const port = 5501;
 //const serverIP = "67.182.53.30";
 const token = "process.env.TOKEN";
 const channelId = "1089659519082188970";
-//app.use(cors());
-const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds,
+app.use(cors());
+const client = new _Client({ intents: [GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages] });
   
   client.on("ready", () => {
@@ -19,8 +17,8 @@ const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds,
   
   client.login(token);
   
-  app.use(express.json());
-  app.use(express.static("public"));
+  app.use(json());
+  app.use(staticz("public"));
   
   app.post("/send", async (req, res) => {
     const channel = client.channels.cache.get(channelId);
