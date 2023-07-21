@@ -11,7 +11,7 @@ app.post('/public/', (req, res) => {
   const data = req.body;
 
   // Write data to the JSON file
-  writeFile('data.json', JSON.stringify(data), (err) => {
+  writeFile('/public/data.json', JSON.stringify(data), (err) => {
     if (err) {
       console.error('Error writing data:', err);
       res.status(500).send('Failed to write data to file.');
