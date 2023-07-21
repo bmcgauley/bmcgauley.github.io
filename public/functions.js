@@ -22,7 +22,7 @@ const saveData = (data) => {
 	const dataJSON = JSON.stringify(data);
   
 	// Make an HTTP POST request to the server endpoint
-	fetch('/public/', {
+	fetch('/public/data.json', {
 	  method: 'POST',
 	  headers: {
 		'Content-Type': 'application/json',

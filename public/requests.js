@@ -1,6 +1,6 @@
 'use strict'
-import express, { json } from '/node_modules/express/';
-import { writeFile } from '/node_modules/fs.realpath';
+import express, { json } from '/node_modules/express';
+import { writeFile } from '/node_modules/fs';
 
 const app = express();
 const port = 3000;
