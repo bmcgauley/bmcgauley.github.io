@@ -13,33 +13,11 @@ const getSavedData = () => {
 //declare data && get saved data from local storage
 let data = getSavedData();
 //functionality to save data back into local storage
-// const saveData = (data) => {
-// 	localStorage.setItem('messageData', JSON.stringify(data));
-// 	// refreshDOM(data);
-// };
 const saveData = (data) => {
-	// Convert data to JSON string
-	const dataJSON = JSON.stringify(data);
-  
-	// Make an HTTP POST request to the server endpoint
-	fetch('/public/data.json', {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: dataJSON,
-	})
-	  .then((response) => {
-		if (response.ok) {
-		  console.log('Data saved successfully!');
-		} else {
-		  console.error('Failed to save data.');
-		}
-	  })
-	  .catch((error) => {
-		console.error('Error saving data:', error);
-	  });
-  };
+	localStorage.setItem('messageData', JSON.stringify(data));
+	// refreshDOM(data);
+};
+
   
 function confirmDelete() {
 	const confirmation = confirm('Are you sure you want to delete?');
