@@ -1,0 +1,26 @@
+[
+    {
+        "prompt": [
+            "/imagine prompt:{} in the scene of {} in the style of {}"
+        ],
+        "subject1": [
+            ""
+        ],
+        "subject2": [
+            ""
+        ],
+        "subject3": [
+            ""
+        ],
+        "scene1": [
+            ""
+        ],
+        "scene2": [
+            ""
+        ],
+        "scene3": [
+            ""
+        ]
+
+    }
+]

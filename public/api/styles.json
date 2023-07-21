@@ -1,0 +1,110 @@
+[
+    {
+        "cyberpunk": [
+            "--cyberpunk"
+        ],
+        "steampunk": [
+            "--steampunk"
+        ],
+        "asleep": [
+            "--asleep"
+        ],
+        "hyper": [
+            "--hyper"
+        ],
+        "1920s": [
+            "--1920s"
+        ],
+        "royal": [
+            "--royal"
+        ],
+        "gilded": [
+            "--gilded"
+        ],
+        "splatter": [
+            "--splatter"
+        ],
+        "rainbow": [
+            "--rainbow"
+        ],
+        "bold": [
+            "--bold"
+        ],
+        "noiranime": [
+            "--noiranime"
+        ],
+        "cyberpunkanime": [
+            "--cyberpunkanime"
+        ],
+        "historicalanime": [
+            "--historicalanime"
+        ],
+        "psychologicalthriller": [
+            "--psychologicalthriller"
+        ],
+        "sportsanime": [
+            "--sportsanime"
+        ],
+        "supernaturalanime": [
+            "--supernaturalanime"
+        ],
+        "isekaianime": [
+            "--isekaianime"
+        ],
+        "horroranime": [
+            "--horroranime"
+        ],
+        "spaceoperaanime": [
+            "--spaceoperaanime"
+        ],
+        "romcomanime": [
+            "--romcomanime"
+        ],
+        "kawaii": [
+            "--kawaii"
+        ],
+        "chibi": [
+            "--chibi"
+        ],
+        "mecha": [
+            "--mecha"
+        ],
+        "shoujo": [
+            "--shoujo"
+        ],
+        "shonen": [
+            "--shonen"
+        ],
+        "gothicita": [
+            "--gothicita"
+        ],
+        "sliceoflife": [
+            "--sliceoflife"
+        ],
+        "traditionaljapanese": [
+            "--traditionaljapanese"
+        ],
+        "magicalgirl": [
+            "--magicalgirl"
+        ],
+        "darkfantasy": [
+            "--darkfantasy"
+        ],
+        "cybernature": [
+            "--cybernature"
+        ],
+        "chibifantasy": [
+            "--chibifantasy"
+        ],
+        "celshaded": [
+            "--celshaded"
+        ],
+        "ghibli": [
+            "--ghibli"
+        ],
+        "watercolor": [
+            "--watercolor"
+        ]
+
+    }
+]

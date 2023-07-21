@@ -1,31 +1,23 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { message } = require('statuses');
-
-
+const mjuid = '936929561302675456'
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('mj_interact')
 		.setDescription('Replies to MJ'),
-	async execute(interaction) {
-        channel.messages.fetch({ limit: 100 }).then(messages => {
-            console.log(`Received ${messages.size} messages`);
-            //Iterate through the messages here with the variable "messages".
-            messages.forEach(message => {
-                console.log(message.content),
-                console.log(message.content.includes("Midjourney Bot"))
-            })
-            if(message.attachments.first()) {
-                    if(message.attachments.first() <= 1 && message.attachments.first().filename.includes("png")) {
-                        download(message.attachments.first().url, `E:/Downloads_AI/test/images/${message.attachments.first().filename}`, function() {
-                            console.log('done');
-                        });
-                    }
-                }
+	async execute(mjuid) {
+        console.log('command executed...')
+        msg.attachments.forEach(a => {
+            if (a.name === mjuid) {
+            fs.writeFileSync(`./${a.name}`, a.file); // Write the file to the system synchronously.
+            } else if (a.name === null) {
+            console.log("No attachment found.");
+            }
         });
-        await interaction.reply('Pong!');
-                    }, }              
-
+    }
+}
+		
 // client.on(Events.InteractionCreate, async interaction => {
 // 	if (!interaction.isChatInputCommand()) return;
 
