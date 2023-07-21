@@ -1,9 +1,9 @@
 // server.js
-import express from '/node_modules/express';
-import { writeFile } from '/node_modules/fs';
+import express from '/node_modules/express/';
+import { writeFile } from '/node_modules/fs/';
 import { splitImage, downloadImage } from '/imageProcessor.js'; // Replace with your image processing functions
-import { config } from '/node_modules/dotenv';
-import { Client } from '/node_modules/discord.js';
+import { config } from '/node_modules/dotenv/';
+import { Client } from '/node_modules/discord.js/';
 
 // Load environment variables from .env file
 config();
