@@ -16,7 +16,7 @@ app.post('/public/data.json', (req, res) => {
   const dataJSON = req.body; // Assuming you have already parsed the JSON data
 
   // Write the data to the data.json file
-  writeFile('public/data.json', JSON.stringify(dataJSON), (err) => {
+  writeFile('/public/data.json', JSON.stringify(dataJSON), (err) => {
     if (err) {
       console.error('Error writing data to data.json:', err);
       res.status(500).send('Error writing data to data.json');
@@ -51,7 +51,7 @@ app.listen(port, () => {
 });
 
 // Your Discord bot setup can also go here
-const discordToken = process.env.DISCORD_TOKEN;
+const discordToken = process.env.TOKEN;
 const client = new Client();
 
 client.on('ready', () => {
