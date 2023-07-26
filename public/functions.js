@@ -115,7 +115,7 @@ function updateLogDisplay(categorizedLines) {
 
 				const songEntryContainer = document.createElement('div');
 				songEntryContainer.className = 'song-entry-container';
-				// songEntryContainer.style.display = 'flex';
+				songEntryContainer.style.display = 'none';
 				songEntryContainer.id = 'output'
 				songEntryContainer.setAttribute('data-artist', artist);
 
@@ -136,6 +136,7 @@ function updateLogDisplay(categorizedLines) {
 
 				const linesContainer = document.createElement('div');
 				linesContainer.classList.add('panel');
+				linesContainer.style.display = 'none';
 
 				lines.forEach((line) => {
 					const lineContainer = document.createElement('div');
@@ -206,9 +207,12 @@ function updateLogDisplay(categorizedLines) {
 		// Find all the song entry containers with matching artists
 		const matchingSongContainers = document.querySelectorAll(
 		  `.song-entry-container[data-artist="${artistName}"]`
+		  
 		);
+		//artistHeader.style.display = 'none'
 	  
 		matchingSongContainers.forEach((container) => {
+			
 		  if (container.style.display === 'block') {
 			container.style.display = 'none';
 		  } else {
@@ -220,8 +224,10 @@ function updateLogDisplay(categorizedLines) {
 
 	function toggleSongGroup(event) {
 		const songTitleHeader = event.target;
-		const linesContainer = songTitleHeader.nextElementSibling;
-
+		let linesContainer = songTitleHeader.nextElementSibling;
+		
+		//songTitleHeader.container.style.display = 'block';
+		//linesContainer.style.display = 'none';
 		if (linesContainer.style.display === 'block') {
 			linesContainer.style.display = 'none';
 		} else {
