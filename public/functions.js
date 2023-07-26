@@ -17,8 +17,6 @@ const saveData = (data) => {
 	localStorage.setItem('messageData', JSON.stringify(data));
 	// refreshDOM(data);
 };
-
-  
 function confirmDelete() {
 	const confirmation = confirm('Are you sure you want to delete?');
 
@@ -31,159 +29,326 @@ function confirmDelete() {
 	}
 }
 function processSongLyrics() {
-	const inputTextarea = document.getElementById('transcriberText');
-	const songTitleInput = document.getElementById('songTitle');
-	console.log(inputTextarea)
-	const lyrics = inputTextarea.value.trim();
-	// console.log(lyrics)
-	const songTitle = songTitleInput.value.trim();
-  
-	if (lyrics === '') {
-	  console.log('Please enter song lyrics or poem lines.');
-	  return;
-	}
-  
-	if (songTitle === '') {
-	  console.log('Please enter a song title.');
-	  return;
-	}
-  
-	const lines = lyrics.split('\n');
-  
-	const categorizedLines = JSON.parse(localStorage.getItem('songLyrics')) || {};
-  
-	if (categorizedLines.hasOwnProperty(songTitle)) {
-	  console.log('Song title already exists. Please choose a different title.');
-	  return;
-	}
-  
-	categorizedLines[songTitle] = lines;
-  
-	localStorage.setItem('songLyrics', JSON.stringify(categorizedLines));
-  
-	console.log('Song lyrics or poem processed and saved successfully.');
-  
-	// Clear the input fields
-	inputTextarea.value = '';
-	songTitleInput.value = '';
-  
-	// Update the log display
-	updateLogDisplay(categorizedLines);
-  }
-  
-  
-  function updateLogDisplay(categorizedLines) {
+    const inputTextarea = document.getElementById('transcriberText');
+    const genreInput = document.getElementById('genreInput');
+    const artistInput = document.getElementById('artistInput');
+    const songTitleInput = document.getElementById('songTitleInput');
+
+    const genre = genreInput.value.trim();
+    const artist = artistInput.value.trim();
+    const songTitle = songTitleInput.value.trim();
+    const lyrics = inputTextarea.value.trim();
+
+    if (lyrics === '') {
+        console.log('Please enter song lyrics or poem lines.');
+        return;
+    }
+
+    if (songTitle === '') {
+        console.log('Please enter a song title.');
+        return;
+    }
+
+    const lines = lyrics.split('\n');
+
+    const categorizedLines = JSON.parse(localStorage.getItem('songLyrics')) || {};
+
+    if (!categorizedLines.hasOwnProperty(genre)) {
+        categorizedLines[genre] = {};
+    }
+
+    if (!categorizedLines[genre].hasOwnProperty(artist)) {
+        categorizedLines[genre][artist] = {};
+    }
+
+    if (categorizedLines[genre][artist].hasOwnProperty(songTitle)) {
+        console.log('Song title already exists. Please choose a different title.');
+        return;
+    }
+
+    categorizedLines[genre][artist][songTitle] = lines;
+
+    localStorage.setItem('songLyrics', JSON.stringify(categorizedLines));
+
+    console.log('Song lyrics or poem processed and saved successfully.');
+
+    // Clear the input fields
+    inputTextarea.value = '';
+    genreInput.value = '';
+    artistInput.value = '';
+    songTitleInput.value = '';
+
+    // Update the log display
+    updateLogDisplay(categorizedLines);
+}
+function updateLogDisplay(categorizedLines) {
 	const logSpan = document.getElementById('logspan2');
 	logSpan.innerHTML = '';
-  
-	for (const songTitle in categorizedLines) {
-	  const lines = categorizedLines[songTitle];
-  
-	  const songEntryContainer = document.createElement('div');
-	  songEntryContainer.className = 'song-entry-container';
-  
-	  const songTitleHeader = document.createElement('h3');
-	  songTitleHeader.textContent = songTitle;
-	  songTitleHeader.addEventListener('click', toggleSongGroup);
-	  songTitleHeader.classList.add('accordion');
-	  songEntryContainer.appendChild(songTitleHeader);
-  
-	  const deleteSongButton = document.createElement('button');
-	  deleteSongButton.textContent = 'Delete';
-	  deleteSongButton.classList.add('delete-button');
-	  deleteSongButton.addEventListener('click', () => {
-		deleteSongEntry(songTitle);
-	  });
-	  songEntryContainer.appendChild(deleteSongButton);
-  
-	  const linesContainer = document.createElement('div');
-	  linesContainer.classList.add('panel');
-  
-	  lines.forEach((line) => {
-		const lineContainer = document.createElement('div');
-		lineContainer.className = 'line-container';
-  
-		const lineText = document.createElement('span');
-		lineText.textContent = line;
-		lineContainer.appendChild(lineText);
-  
-		const copyButton = document.createElement('button');
-		copyButton.textContent = 'Copy';
-		copyButton.addEventListener('click', () => {
-		  navigator.clipboard.writeText(line)
-			.then(() => {
-			  alert('Line copied to clipboard!');
-			})
-			.catch((error) => {
-			  console.error('Error copying line to clipboard:', error);
-			});
-		});
-		lineContainer.appendChild(copyButton);
-  
-		const deleteLineButton = document.createElement('button');
-		deleteLineButton.textContent = 'Delete';
-		deleteLineButton.classList.add('delete-button');
-		deleteLineButton.addEventListener('click', () => {
-		  deleteLineEntry(songTitle, line);
-		});
-		lineContainer.appendChild(deleteLineButton);
-  
-		linesContainer.appendChild(lineContainer);
-	  });
-  
-	  songEntryContainer.appendChild(linesContainer);
-	  logSpan.appendChild(songEntryContainer);
+
+	for (const genre in categorizedLines) {
+		const artists = categorizedLines[genre];
+
+		const genreEntryContainer = document.createElement('div');
+		genreEntryContainer.className = 'genre-entry-container';
+
+		const genreHeader = document.createElement('h2');
+		genreHeader.textContent = genre;
+		genreHeader.addEventListener('click', toggleGenreGroup);
+		genreHeader.classList.add('accordion');
+		genreEntryContainer.appendChild(genreHeader);
+
+		for (const artist in artists) {
+			const songs = artists[artist];
+
+			const artistEntryContainer = document.createElement('div');
+			artistEntryContainer.className = 'artist-entry-container';
+			artistEntryContainer.style.display = 'none';
+
+			const artistHeader = document.createElement('h3');
+			artistHeader.textContent = artist;
+			artistHeader.addEventListener('click', toggleArtistGroup);
+			artistHeader.classList.add('accordion');
+			artistEntryContainer.appendChild(artistHeader);
+
+			for (const songTitle in songs) {
+				const lines = songs[songTitle];
+
+				const songEntryContainer = document.createElement('div');
+				songEntryContainer.className = 'song-entry-container';
+				// songEntryContainer.style.display = 'flex';
+				songEntryContainer.id = 'output'
+				songEntryContainer.setAttribute('data-artist', artist);
+
+				const songTitleHeader = document.createElement('h4');
+				songTitleHeader.textContent = songTitle;
+				songTitleHeader.style.display = 'block';
+				songTitleHeader.addEventListener('click', toggleSongGroup);
+				songTitleHeader.classList.add('accordion');
+				songEntryContainer.appendChild(songTitleHeader);
+
+				const deleteSongButton = document.createElement('button');
+				deleteSongButton.textContent = 'Delete Song';
+				deleteSongButton.classList.add('delete-button');
+				deleteSongButton.addEventListener('click', () => {
+					deleteSongEntry(genre, artist, songTitle);
+				});
+				// songEntryContainer.appendChild(deleteSongButton);
+
+				const linesContainer = document.createElement('div');
+				linesContainer.classList.add('panel');
+
+				lines.forEach((line) => {
+					const lineContainer = document.createElement('div');
+					lineContainer.className = 'line-container';
+
+					const lineText = document.createElement('span');
+					lineText.textContent = line;
+					lineContainer.appendChild(lineText);
+
+					const copyButton = document.createElement('button');
+					copyButton.textContent = 'Copy';
+					copyButton.addEventListener('click', () => {
+						navigator.clipboard
+							.writeText(line)
+							.then(() => {
+								alert('Line copied to clipboard!');
+							})
+							.catch((error) => {
+								console.error('Error copying line to clipboard:', error);
+							});
+					});
+					lineContainer.appendChild(copyButton);
+
+					const deleteLineButton = document.createElement('button');
+					deleteLineButton.textContent = 'Delete Line';
+					deleteLineButton.classList.add('delete-button');
+					deleteLineButton.addEventListener('click', () => {
+						deleteLineEntry(genre, artist, songTitle, line);
+					});
+					
+					lineContainer.appendChild(deleteLineButton);
+
+					linesContainer.appendChild(lineContainer);
+					songEntryContainer.appendChild(linesContainer);
+					songEntryContainer.appendChild(deleteSongButton);
+					
+				});
+
+				
+				
+				
+				artistEntryContainer.appendChild(songEntryContainer);
+			}
+
+			genreEntryContainer.appendChild(artistEntryContainer);
+		}
+
+		logSpan.appendChild(genreEntryContainer);
 	}
-  
+
 	// Function to handle accordion-style behavior
-	function toggleSongGroup(event) {
-	  const songTitleHeader = event.target;
-	  const linesContainer = songTitleHeader.nextElementSibling;
-  
-	  if (linesContainer.style.display === 'block') {
-		linesContainer.style.display = 'none';
-	  } else {
-		linesContainer.style.display = 'block';
+	function toggleGenreGroup(event) {
+		const genreHeader = event.target;
+		const artistEntryContainer = genreHeader.nextElementSibling;
+
+		if (artistEntryContainer.style.display === 'block') {
+			artistEntryContainer.style.display = 'none';
+		} else {
+			artistEntryContainer.style.display = 'block';
+		}
+	}
+
+	function toggleArtistGroup(event) {
+		const artistHeader = event.target;
+		const songEntryContainer = artistHeader.nextElementSibling;
+		const artistName = artistHeader.textContent;
+	  
+		// Find all the song entry containers with matching artists
+		const matchingSongContainers = document.querySelectorAll(
+		  `.song-entry-container[data-artist="${artistName}"]`
+		);
+	  
+		matchingSongContainers.forEach((container) => {
+		  if (container.style.display === 'block') {
+			container.style.display = 'none';
+		  } else {
+			container.style.display = 'block';
+		  }
+		});
 	  }
+	  
+
+	function toggleSongGroup(event) {
+		const songTitleHeader = event.target;
+		const linesContainer = songTitleHeader.nextElementSibling;
+
+		if (linesContainer.style.display === 'block') {
+			linesContainer.style.display = 'none';
+		} else {
+			linesContainer.style.display = 'block';
+		}
 	}
-  
+
 	// Function to delete a song entry
-	function deleteSongEntry(songTitle) {
-	  // Perform deletion logic here based on the song title
-	  // For example, remove the song entry from storage or update the data structure
-	  // Once deleted, call updateLogDisplay() to refresh the log display
-	  updateLogDisplay(categorizedLines); // Refresh the log display after deletion
-	}
-  
-	// Function to delete a line entry
-	function deleteLineEntry(songTitle, line) {
-	  // Perform deletion logic here based on the song title and line
-	  // For example, remove the line from storage or update the data structure
-	  // Once deleted, call updateLogDisplay() to refresh the log display
-	  updateLogDisplay(categorizedLines); // Refresh the log display after deletion
-	}
-  }
-  
-  
-  
-  function transcribeButton() {
+	function deleteSongEntry(genre, artist, songTitle) {
+		// Retrieve the existing data from local storage
+		const storedCategorizedLines = JSON.parse(localStorage.getItem('songLyrics'));
+	  
+		// Check if the genre exists in the data
+		if (storedCategorizedLines.hasOwnProperty(genre)) {
+		  const artists = storedCategorizedLines[genre];
+	  
+		  // Check if the artist exists in the data
+		  if (artists.hasOwnProperty(artist)) {
+			const songs = artists[artist];
+	  
+			// Check if the song title exists in the data
+			if (songs.hasOwnProperty(songTitle)) {
+			  // Delete the song entry
+			  delete songs[songTitle];
+	  
+			  // If there are no more songs under the artist, delete the artist entry
+			  if (Object.keys(songs).length === 0) {
+				delete artists[artist];
+			  }
+	  
+			  // If there are no more artists under the genre, delete the genre entry
+			  if (Object.keys(artists).length === 0) {
+				delete storedCategorizedLines[genre];
+			  }
+	  
+			  // Save the updated data back to local storage
+			  localStorage.setItem('songLyrics', JSON.stringify(storedCategorizedLines));
+	  
+			  // Refresh the log display after deletion
+			  updateLogDisplay(storedCategorizedLines);
+			} else {
+			  console.log('Song title not found.');
+			}
+		  } else {
+			console.log('Artist not found.');
+		  }
+		} else {
+		  console.log('Genre not found.');
+		}
+	  }
+	  
+	  function deleteLineEntry(genre, artist, songTitle, line) {
+		// Retrieve the existing data from local storage
+		const storedCategorizedLines = JSON.parse(localStorage.getItem('songLyrics'));
+	  
+		// Check if the genre exists in the data
+		if (storedCategorizedLines.hasOwnProperty(genre)) {
+		  const artists = storedCategorizedLines[genre];
+	  
+		  // Check if the artist exists in the data
+		  if (artists.hasOwnProperty(artist)) {
+			const songs = artists[artist];
+	  
+			// Check if the song title exists in the data
+			if (songs.hasOwnProperty(songTitle)) {
+			  const lines = songs[songTitle];
+	  
+			  // Find the index of the line in the array
+			  const lineIndex = lines.indexOf(line);
+	  
+			  // If the line exists in the array, remove it
+			  if (lineIndex !== -1) {
+				lines.splice(lineIndex, 1);
+	  
+				// If there are no more lines under the song title, delete the song entry
+				if (lines.length === 0) {
+				  delete songs[songTitle];
+				}
+	  
+				// If there are no more songs under the artist, delete the artist entry
+				if (Object.keys(songs).length === 0) {
+				  delete artists[artist];
+				}
+	  
+				// If there are no more artists under the genre, delete the genre entry
+				if (Object.keys(artists).length === 0) {
+				  delete storedCategorizedLines[genre];
+				}
+	  
+				// Save the updated data back to local storage
+				localStorage.setItem('songLyrics', JSON.stringify(storedCategorizedLines));
+	  
+				// Refresh the log display after deletion
+				updateLogDisplay(storedCategorizedLines);
+			  } else {
+				console.log('Line not found.');
+			  }
+			} else {
+			  console.log('Song title not found.');
+			}
+		  } else {
+			console.log('Artist not found.');
+		  }
+		} else {
+		  console.log('Genre not found.');
+		}
+	  }
+	  
+}
+
+function transcribeButton() {
 	const generateButton = document.createElement('button');
 	generateButton.id = 'transcribeButton';
 	generateButton.textContent = 'Transcribe';
 	generateButton.addEventListener('click', processSongLyrics);
-  
+
 	const generateContainer = document.getElementById('transcribeContainer');
 	generateContainer.innerHTML = ''; // Clear previous content
 	generateContainer.appendChild(generateButton);
-  }
-  
-  // Call the transcribeButton function to initialize the button
-  transcribeButton();
-  
-  // Retrieve the existing song lyrics from storage and update the log display
-  const storedCategorizedLines = JSON.parse(localStorage.getItem('songLyrics'));
-  updateLogDisplay(storedCategorizedLines || {});
-  
+}
+
+// Call the transcribeButton function to initialize the button
+transcribeButton();
+
+// Retrieve the existing song lyrics from storage and update the log display
+const storedCategorizedLines = JSON.parse(localStorage.getItem('songLyrics'));
+updateLogDisplay(storedCategorizedLines || {});
 
 // Create and append the "Generate" button
 function createGenerateButton() {
@@ -196,7 +361,6 @@ function createGenerateButton() {
 	// generateContainer.innerHTML = ''; // Clear previous content
 	generateContainer.appendChild(generateButton);
 }
-
 // Event handler for the "Generate" button click
 function handleGenerateClick(event) {
 	event.preventDefault();
@@ -238,7 +402,9 @@ function handleGenerateClick(event) {
 		}
 
 		if (selectedArtists.length > 0) {
-			fragments.push(`with influence from the artist {${selectedArtists.join(', ')}}`);
+			fragments.push(
+				`with influence from the artist {${selectedArtists.join(', ')}}`
+			);
 		}
 
 		if (selectedMediums.length > 0) {
@@ -301,13 +467,16 @@ function handleGenerateClick(event) {
 
 	newCopyButton.className = 'copyButton';
 	newCopyButton.textContent = `Copy`;
-	newCopyButton.setAttribute('data-message', message(
-		selectedSubjects,
-		selectedScenes,
-		selectedStyles,
-		selectedArtists,
-		selectedMediums
-	  ));
+	newCopyButton.setAttribute(
+		'data-message',
+		message(
+			selectedSubjects,
+			selectedScenes,
+			selectedStyles,
+			selectedArtists,
+			selectedMediums
+		)
+	);
 	newCopyButton.addEventListener('click', handleCopyClick);
 
 	// Event handler for the "Copy" button click
@@ -337,29 +506,30 @@ function handleGenerateClick(event) {
 		selectedStyles,
 		selectedArtists,
 		selectedMediums
-	  )}`;
+	)}`;
 	generateContainer.appendChild(generateMessage);
 
 	generateContainer.appendChild(document.createElement('br'));
 	generateContainer.appendChild(document.getElementById('preview'));
 	generateContainer.appendChild(document.createElement('br'));
 
-	addLogEntry(data, message(
-		selectedSubjects,
-		selectedScenes,
-		selectedStyles,
-		selectedArtists,
-		selectedMediums
-	  ));
+	addLogEntry(
+		data,
+		message(
+			selectedSubjects,
+			selectedScenes,
+			selectedStyles,
+			selectedArtists,
+			selectedMediums
+		)
+	);
 
 	// Remove the event listeners for checkboxes
 	removeCheckboxEventListeners();
 
 	// Add the event listeners for checkboxes
 	addCheckboxEventListeners();
-	
 }
-
 // Event handler for checkbox click events
 function handleCheckboxClick() {
 	const selectedSubjects = Array.from(
@@ -389,25 +559,27 @@ function handleCheckboxClick() {
 		const fragments = [];
 
 		if (selectedSubjects.length > 0) {
-		  fragments.push(`The subject matter of {${selectedSubjects.join(', ')}}`);
+			fragments.push(`The subject matter of {${selectedSubjects.join(', ')}}`);
 		}
-	  
+
 		if (selectedScenes.length > 0) {
-		  fragments.push(`in the scene of {${selectedScenes.join(', ')}}`);
+			fragments.push(`in the scene of {${selectedScenes.join(', ')}}`);
 		}
-	  
+
 		if (selectedStyles.length > 0) {
-		  fragments.push(`with the style of {${selectedStyles.join(', ')}}`);
+			fragments.push(`with the style of {${selectedStyles.join(', ')}}`);
 		}
-	  
+
 		if (selectedArtists.length > 0) {
-		  fragments.push(`with influence from the artist {${selectedArtists.join(', ')}}`);
+			fragments.push(
+				`with influence from the artist {${selectedArtists.join(', ')}}`
+			);
 		}
-	  
+
 		if (selectedMediums.length > 0) {
-		  fragments.push(`as the medium of {${selectedMediums.join(', ')}}`);
+			fragments.push(`as the medium of {${selectedMediums.join(', ')}}`);
 		}
-	  
+
 		const message = `/imagine prompt: ${fragments.join(' ')}`;
 		return message.trim();
 	}
@@ -417,8 +589,8 @@ function handleCheckboxClick() {
 		selectedStyles,
 		selectedArtists,
 		selectedMediums
-	)
-	
+	);
+
 	// Update the preview textarea with the generated message
 	document.getElementById('preview').textContent = message;
 
@@ -439,7 +611,6 @@ function handleCheckboxClick() {
 		counterh1.innerHTML = `Total Combinations Permutations: ${combinations}`;
 		counterh1.classList = 'gold';
 	}
-	
 }
 function addCheckboxEventListeners() {
 	const subjectCheckboxes = document.querySelectorAll(
@@ -477,7 +648,6 @@ function addCheckboxEventListeners() {
 		checkbox.addEventListener('click', handleCheckboxClick);
 	});
 }
-
 // Function to remove event listeners from checkboxes
 function removeCheckboxEventListeners() {
 	const subjectCheckboxes = document.querySelectorAll(
@@ -515,13 +685,12 @@ function removeCheckboxEventListeners() {
 		checkbox.removeEventListener('click', handleCheckboxClick);
 	});
 }
-
 // Function to add log entry to local storage
 function addLogEntry(data, message) {
 	const storedLog = data;
 	storedLog.log.push(message);
 	saveData(storedLog);
-	refreshDOM(data)
+	refreshDOM(data);
 }
 // Function to delete log entry from local storage
 function deleteLogEntry(entry) {
