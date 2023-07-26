@@ -4,6 +4,16 @@
     "discord": "^0.8.2",
     "discord.js": "^14.9.0",
     "express": "^4.18.2",
-    "main": "public/index.js"
-  }
+    "main": "github:public/index.js"
+  },
+  "name": "public",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

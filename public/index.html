@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <base href="">
+    <!-- <link rel="stylesheet" href="css/styleguide.css"> -->
+    <script type="module" src="node_modules/puppeteer/" defer></script>
+    <script src="discord.js" defer></script>
+    <script type="module" src="index.js"></script>
+    <script src="Maths.js" defer></script>
+    <script src="functions.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>test</title>
+</head>
+
+<body>
+    <!-- <h1>Send a message to Discord</h1>
+  <button id="send-button">Send Message</button> -->
+    <div class="web-1920-1 screen">
+        <div class="overlap-group1">
+            <div class="banner_bg">
+                <div class="upper_header_frame">
+                    <div class="upper_half">
+                        <a href="/index.html">
+                            <img src="/public/img/imaginarii logo_DreamWeaver_Mascot.png" class="img" height="128px">
+                        </a>
+                    </div>
+                    <span class="main_links">
+                        <a href="">Home</a> |
+                        <a href="">Discord Chat</a> |
+                        <a href="">Saved Archives</a> |
+                        <a href="">About</a> |
+                        <a href="">Contact</a> |
+                    </span>
+                </div>
+                <div class="lower_header_frame">
+                    <span class="header_left"></span>
+                    <span class="header_right">
+                        <a href="">link 1</a>
+                        <a href="">link 2</a>
+                        <a href="">link 3</a>
+                        <a href="">link 4</a>
+                        <a href="">link 5</a>
+                    </span>
+                </div>
+
+
+            </div>
+            <div class="overlap-group">
+                <div class="overlap-group2">
+
+                </div>
+                <div class="container" id="main">
+                    <div class="counter">
+
+                        <h1 id="h1" align="center"></h1>
+
+                    </div>
+                    <div class="container">
+
+                        <div class="category">
+                            <h3>Subjects</h3>
+                            <div id="subjects-head" class="add-new-style">
+                            </div>
+                            <div id="subjects">
+
+                            </div>
+                        </div>
+
+
+                        <div class="category">
+                            <h3>Scenes</h3>
+                            <div id="scenes-head" class="add-new-style">
+                            </div>
+                            <div id="scenes">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="category">
+                            <h3>Styles</h3>
+                            <div id="styles-head" class="add-new-style">
+                            </div>
+                            <div id="styles" class="styles-container">
+
+                            </div>
+
+                        </div>
+                        <div class="category">
+                            <h3>Artists</h3>
+                            <div id="artists-head" class="add-new-artist">
+                            </div>
+                            <div id="artists" class="artists-container">
+
+                            </div>
+
+                        </div>
+                        <div class="category">
+                            <h3>Medium</h3>
+                            <div id="mediums-head" class="add-new-medium">
+                            </div>
+                            <div id="mediums" class="mediums-container">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="flex-row flex"> -->
+                    <!-- <p><br><h1></h1></p> -->
+                    <div class="category" id="output">
+                        <h2>Output:</h2>
+
+
+
+                        <div id="previewTextArea">
+                            <textarea id="preview">
+
+                        </textarea>
+                        </div>
+                        <div id="generateContainer" class="generate">
+
+
+                        </div>
+                    </div>
+                    <div id="messageLibrary">
+                        <h1>Message Library</h1>
+
+                        <div id="log">
+                            <h2>log</h2>
+                            <span id="logspan">
+
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- </div> -->
+
+                </div>
+                <div class="container" id="main">
+                    <div class="counter">
+
+                        <h1 id="h1" align="center"></h1>
+
+                    </div>
+                    <div class="container">
+
+                        <div class="">
+                            <h3>Transcriber</h3>
+                            <div id="transcriber-head" class="transcriber">
+                            </div>
+                            <div id="transcriber">
+                                <input type="text" id="genreInput" placeholder="Genre">
+                                <input type="text" id="artistInput" placeholder="Artist">
+                                <input type="text" id="songTitleInput" placeholder="Song Title">
+                                <br />
+                                <label for="transcriber">Input your song lyrics in full here by copy and
+                                    pasting:</label>
+                                <br />
+                                <textarea id="transcriberText" name="transcriber" rows="30" cols="64">
+
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="category" id="output">
+                            <h2>Output:</h2>
+                            <div id="transcribePreviewTextArea">
+                                <textarea id="preview"></textarea>
+                            </div>
+                            <div id="transcribeContainer" class="generate"></div>
+                        </div>
+                        
+                        <div id="transcribeLibrary">
+                            <h1>Message Library</h1>
+                            <div id="log">
+                                <h2>Log</h2>
+                                <span id="logspan2"></span>
+                            </div>
+                        </div>
+                                
+
+                    
+
+
+                        
+
+
+                        
+                    </div>
+
+
+                    <!-- </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 'use strict';
-
+//import {line} from '../discord.js'
 //get saved data
 const getSavedData = () => {
 	const dataJSON = localStorage.getItem('messageData');
@@ -153,6 +153,7 @@ function updateLogDisplay(categorizedLines) {
 							.writeText(line)
 							.then(() => {
 								alert('Line copied to clipboard!');
+								sendToDiscord(line);
 							})
 							.catch((error) => {
 								console.error('Error copying line to clipboard:', error);

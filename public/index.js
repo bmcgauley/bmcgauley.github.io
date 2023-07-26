@@ -131,3 +131,15 @@
 // .pipe(fs.createWriteStream('meme.png'));
 // }
 
+import express from "../node_modules/express";
+import getImage from "./discord.js";
+
+const app = express();
+
+app.get("/rasbign", async (req, res) => {
+  const prompt = req.query.prompt;
+  const url = await getImage(prompt);
+  res.send(url);
+});
+
+app.listen(8080);

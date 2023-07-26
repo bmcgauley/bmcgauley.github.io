@@ -1,21 +1,19 @@
-const { SlashCommandBuilder } = require('discord.js');
-const { message } = require('statuses');
+import { SlashCommandBuilder } from 'discord.js';
+import { message } from 'statuses';
 const mjuid = '936929561302675456'
 
-module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('mj_interact')
-		.setDescription('Replies to MJ'),
-	async execute(mjuid) {
-        console.log('command executed...')
-        msg.attachments.forEach(a => {
-            if (a.name === mjuid) {
+export const data = new SlashCommandBuilder()
+    .setName('mj_interact')
+    .setDescription('Replies to MJ');
+export async function execute(mjuid) {
+    console.log('command executed...');
+    msg.attachments.forEach(a => {
+        if (a.name === mjuid) {
             fs.writeFileSync(`./${a.name}`, a.file); // Write the file to the system synchronously.
-            } else if (a.name === null) {
+        } else if (a.name === null) {
             console.log("No attachment found.");
-            }
-        });
-    }
+        }
+    });
 }
 		
 // client.on(Events.InteractionCreate, async interaction => {
